@@ -1,3 +1,9 @@
+/*
+ê°œë°œìž: ë°•ì§€ìš°, ìœ¤ë¯¼í˜, ì •ë¯¼íƒœ
+ê°œë°œì¼: 2021.09.07
+ë¬¸ì˜: p0312181@naver.com
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,30 +14,30 @@
 
 void intro();
 void room();
-void frame();	//1. ¾×ÀÚ
-void bed();		//2. Ä§´ë 
-void fridge();	//3. ¼öÁ¤Áß 
-void safebox();	//4. ¼öÁ¤Áß  
-void closet();	//5. ¼öÁ¤Áß 
-void door();	//6. ¼öÁ¤Áß 
+void frame();	//1. ì•¡ìž
+void bed();		//2. ì¹¨ëŒ€ 
+void fridge();	//3. ìˆ˜ì •ì¤‘ 
+void safebox();	//4. ìˆ˜ì •ì¤‘  
+void closet();	//5. ìˆ˜ì •ì¤‘ 
+void door();	//6. ìˆ˜ì •ì¤‘ 
 void door_password();
 
-int isBrokenFrame = FALSE;	//¾×ÀÚ ÆÄ¼Õ¿©ºÎ 
-int isBrokenBed = FALSE;	//Ä§´ë ÆÄ¼Õ¿©ºÎ 
+int isBrokenFrame = FALSE;	//ì•¡ìž íŒŒì†ì—¬ë¶€ 
+int isBrokenBed = FALSE;	//ì¹¨ëŒ€ íŒŒì†ì—¬ë¶€ 
 
-int isFindMagnifyingGlass = FALSE;	//µ¸º¸±â ½Àµæ¿©ºÎ 
-int isFindGoldKey = FALSE;		//±Ý»ö ¿­¼è È¹µæ ¿©ºÎ 
-int isFindSilverKey = FALSE; 	//Àº»ö ¿­¼è È¹µæ ¿©ºÎ 
+int isFindMagnifyingGlass = FALSE;	//ë‹ë³´ê¸° ìŠµë“ì—¬ë¶€ 
+int isFindGoldKey = FALSE;		//ê¸ˆìƒ‰ ì—´ì‡  íšë“ ì—¬ë¶€ 
+int isFindSilverKey = FALSE; 	//ì€ìƒ‰ ì—´ì‡  íšë“ ì—¬ë¶€ 
 
-int isOpenSafebox = FALSE;		//±Ý°í ¿ÀÇÂ ¿©ºÎ 
+int isOpenSafebox = FALSE;		//ê¸ˆê³  ì˜¤í”ˆ ì—¬ë¶€ 
 
 int main() {
 	int menu;
 	
 	while(1) {
-		printf("ºñ¹öÀÇ ¹æ\n\n");
-		printf("1. °ÔÀÓ ½ÃÀÛ\n");
-		printf("0. ÀÀ ¾ÈÇØ\n");
+		printf("ë¹„ë²„ì˜ ë°©\n\n");
+		printf("1. ê²Œìž„ ì‹œìž‘\n");
+		printf("0. ì‘ ì•ˆí•´\n");
 		printf(">> ");
 		scanf("%d", &menu);
 		
@@ -43,7 +49,7 @@ int main() {
 			case 0:
 				return 0;
 			default:
-				printf("ÀÔ·Â ¿À·ù\n\n");
+				printf("ìž…ë ¥ ì˜¤ë¥˜\n\n");
 				break;
 		}
 	}
@@ -53,21 +59,21 @@ int main() {
 void intro() {
 	system("cls");
 	printf("\n\n");
-	printf("¿À´ÃÀº ¼Ò²ßÄ£±¸ ¹Ì¶õÀÌ¿Í ³îÀÌ°ø¿ø¿¡ °¡´Â ³¯ÀÌ´Ù.\n\n");
+	printf("ì˜¤ëŠ˜ì€ ì†Œê¿‰ì¹œêµ¬ ë¯¸ëž€ì´ì™€ ë†€ì´ê³µì›ì— ê°€ëŠ” ë‚ ì´ë‹¤.\n\n");
 	Sleep(1500);
-	printf("³îÀÌ°ø¿ø È­Àå½Ç °¡´Â °ñ¸ñ¿¡¼­.\n");
+	printf("ë†€ì´ê³µì› í™”ìž¥ì‹¤ ê°€ëŠ” ê³¨ëª©ì—ì„œ.\n");
 	Sleep(2500);
-	printf("°ËÀº Á¶Á÷¿¡ ¹Ð°Å·¡ ÇöÀåÀ» ¹ß°ßÇÏ°Ô µÇ°í\n");
+	printf("ê²€ì€ ì¡°ì§ì— ë°€ê±°ëž˜ í˜„ìž¥ì„ ë°œê²¬í•˜ê²Œ ë˜ê³ \n");
 	Sleep(1500);
-	printf("»çÁøÀ» Âï°í µµ¸Á°¡·Á´ø Âû³ª¿¡ µÚÅë¼ö¸¦ ¸Â¾Ò´ç\n\n");
+	printf("ì‚¬ì§„ì„ ì°ê³  ë„ë§ê°€ë ¤ë˜ ì°°ë‚˜ì— ë’¤í†µìˆ˜ë¥¼ ë§žì•˜ë‹¹\n\n");
 	Sleep(2500);
-	printf("´«À» ¶°º¸´Ï ³¸¼± ¹æ¾È¿¡ µé¾î¿ÍÀÖ´Ù..\n");
+	printf("ëˆˆì„ ë– ë³´ë‹ˆ ë‚¯ì„  ë°©ì•ˆì— ë“¤ì–´ì™€ìžˆë‹¤..\n");
 	Sleep(1500);
-	printf("ÃµÀå¿¡´Â ºñ¹ö»çÁøÀÌ µµ¹èµÇ¾îÀÖ´Ù..\n\n");
+	printf("ì²œìž¥ì—ëŠ” ë¹„ë²„ì‚¬ì§„ì´ ë„ë°°ë˜ì–´ìžˆë‹¤..\n\n");
 	Sleep(1500);
-	printf("¿©±ä ¾îµðÁö..? ÀÌ°÷¿¡¼­ Å»ÃâÇØ¾ßµÈ´Ù..\n\n");
+	printf("ì—¬ê¸´ ì–´ë””ì§€..? ì´ê³³ì—ì„œ íƒˆì¶œí•´ì•¼ëœë‹¤..\n\n");
 	Sleep(1500);
-	printf("Áý¿¡´Â ÂîÂî´ß¹ßÀÌ ³¯ ±â´Ù¸®°í ÀÖ¾î!.\n\n");
+	printf("ì§‘ì—ëŠ” ì°Œì°Œë‹­ë°œì´ ë‚  ê¸°ë‹¤ë¦¬ê³  ìžˆì–´!.\n\n");
 	Sleep(1500);
 	system("pause");
 }
@@ -77,10 +83,10 @@ void room() {
 	
 	while(1) {
 		system("cls");	
-		printf("[ºñ¹öÀÇ ¹æ]\n\n");
-		printf("¹æ ¾È¿¡¼­ ÇÒ ¼ö ÀÖ´Â °ÍµéÀ» Ã£¾Æº¸ÀÚ.\n\n");
-		printf("1. Ã¥»ó    2.¶ó²Ù¶ó²ÙÄ§´ë    3. ³ÃÀå°í\n");
-		printf("4. È­Àå½Ç    5. ¿ÊÀå    6. Å»Ãâ±¸\n");
+		printf("[ë¹„ë²„ì˜ ë°©]\n\n");
+		printf("ë°© ì•ˆì—ì„œ í•  ìˆ˜ ìžˆëŠ” ê²ƒë“¤ì„ ì°¾ì•„ë³´ìž.\n\n");
+		printf("1. ì±…ìƒ    2.ë¼ê¾¸ë¼ê¾¸ì¹¨ëŒ€    3. ëƒ‰ìž¥ê³ \n");
+		printf("4. í™”ìž¥ì‹¤    5. ì˜·ìž¥    6. íƒˆì¶œêµ¬\n");
 			
 		printf(">> ");
 		scanf("%d", &menu);
@@ -88,7 +94,7 @@ void room() {
 		switch(menu) {
 			case 1:
 				if(isBrokenFrame) {
-					printf("\nÄ§´ë¸¦ ºÎ¼­¹ö·È´Ù. ´õ ÀÌ»ó Ã£À» ¼ö ¾ø´Ù.\n");
+					printf("\nì¹¨ëŒ€ë¥¼ ë¶€ì„œë²„ë ¸ë‹¤. ë” ì´ìƒ ì°¾ì„ ìˆ˜ ì—†ë‹¤.\n");
 					system("pause");
 				} else {
 					frame();					
@@ -110,23 +116,23 @@ void room() {
 				door();
 				break;
 			default:
-				printf("\n# ERROR # ÀÔ·Â°ª ¿À·ù\n");
+				printf("\n# ERROR # ìž…ë ¥ê°’ ì˜¤ë¥˜\n");
 				system("pause");
 		}
 	}
 	
 }
 
-void frame(){//1.  Ã¥»ó 
+void frame(){//1.  ì±…ìƒ 
 	int menu;
 	
 	while(1) {
 		system("cls");
-		printf("[ºñ¹öÀÇ ¹æ]-[Ã¥»ó]\n\n");
-		printf("¹æ¾È¿¡ Å«Ã¥»óÀÌ ÀÖ´Ù.\n\n");
-		printf("1. Ã¥»óÀ» »ìÆìº»´Ù\n");
-		printf("2. Ã¥»óÀ» ºÎ¼ø´Ù\n");
-		printf("0. µ¹¾Æ°¡±â\n");
+		printf("[ë¹„ë²„ì˜ ë°©]-[ì±…ìƒ]\n\n");
+		printf("ë°©ì•ˆì— í°ì±…ìƒì´ ìžˆë‹¤.\n\n");
+		printf("1. ì±…ìƒì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("2. ì±…ìƒì„ ë¶€ìˆœë‹¤\n");
+		printf("0. ëŒì•„ê°€ê¸°\n");
 		
 		printf(">> ");
 		scanf("%d", &menu);
@@ -135,37 +141,37 @@ void frame(){//1.  Ã¥»ó
 			case 1:
 				if(isFindMagnifyingGlass) {
 				} else {
-					printf("\nÃ¥»ó¿¡´Â º°°Å¾ø´Â°Å °°´Ù .\n\n");
+					printf("\nì±…ìƒì—ëŠ” ë³„ê±°ì—†ëŠ”ê±° ê°™ë‹¤ .\n\n");
 				}
 				break;
 			case 2:
 				isBrokenFrame = TRUE;
-				printf("\n Ã¥»ó. ÆÄ±«ÇÑ´Ù..\n");
-				printf("Å©½î!!! Ã¶Á¦ Ã¥»óÀÌ¶ó´Ï!!\n\n");
-				printf("Á»´õ ·¹º§¾÷À» ÇØ¾ßµÉ°Å °°´Ù.\n\n");
+				printf("\n ì±…ìƒ. íŒŒê´´í•œë‹¤..\n");
+				printf("í¬ì˜!!! ì² ì œ ì±…ìƒì´ë¼ë‹ˆ!!\n\n");
+				printf("ì¢€ë” ë ˆë²¨ì—…ì„ í•´ì•¼ë ê±° ê°™ë‹¤.\n\n");
 				system("pause");
 				return;
 			case 0:
 				return;
 			default:
-				printf("\nÀÀ Æ²·È¾û ´Ù½Ã ½á1\n\n");
+				printf("\nì‘ í‹€ë ¸ì—‰ ë‹¤ì‹œ ì¨1\n\n");
 				break;
 		}
 		system("pause");
 	}	
 }	
 
-void bed() {//2. Ä§´ë 
+void bed() {//2. ì¹¨ëŒ€ 
 	int menu;
 	
 	while(1) {
 		system("cls");
-		printf("[¿ø·ë]-[¶ó²Ù¶ó²ÙÄ§´ë]\n\n");
-		printf("±¸¼®¿¡ ¶ó²Ù¶ó²ÙÄ§´ë°¡ ÀÖ´Ù.\n\n");
-		printf("1. ¶ó²Ù¶ó²ÙÄ§´ë ¹ØÀ» »ìÆìº»´Ù\n");
-		printf("2. ¶ó²Ù¶ó²ÙÄ§´ë¸¦ »ìÆìº»´Ù\n");
-		printf("3. ÀÌºÒÀ» »ìÆìº»´Ù\n");
-		printf("0. µ¹¾Æ°¡±â\n");
+		printf("[ì›ë£¸]-[ë¼ê¾¸ë¼ê¾¸ì¹¨ëŒ€]\n\n");
+		printf("êµ¬ì„ì— ë¼ê¾¸ë¼ê¾¸ì¹¨ëŒ€ê°€ ìžˆë‹¤.\n\n");
+		printf("1. ë¼ê¾¸ë¼ê¾¸ì¹¨ëŒ€ ë°‘ì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("2. ë¼ê¾¸ë¼ê¾¸ì¹¨ëŒ€ë¥¼ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("3. ì´ë¶ˆì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("0. ëŒì•„ê°€ê¸°\n");
 		
 		printf(">> ");
 		scanf("%d", &menu);
@@ -173,53 +179,53 @@ void bed() {//2. Ä§´ë
 		switch(menu) {
 			case 1:
 				if(isBrokenBed)  {
-					printf("\n¶ó²Ù¶ó²Ù Ä§´ë´Â ÆÄ±«µÇ¾ú´Ù..\n\n");
+					printf("\në¼ê¾¸ë¼ê¾¸ ì¹¨ëŒ€ëŠ” íŒŒê´´ë˜ì—ˆë‹¤..\n\n");
 				} else {
-					printf("\n¸ÕÁö°¡ °¡µæÇÏ´Ù ¾î¿ì´õ·¯¿ý.\n");	
+					printf("\në¨¼ì§€ê°€ ê°€ë“í•˜ë‹¤ ì–´ìš°ë”ëŸ¬ì›¡.\n");	
 				}
 				system("pause");
 				break;
 			case 2:
 				if(isBrokenBed) {
-					printf("\nÄ§´ë°¡ ºÎ¼­Á®¼­ ´õ ÀÌ»ó Ã£À» ¼ö ¾ø´Ù.\n\n");
+					printf("\nì¹¨ëŒ€ê°€ ë¶€ì„œì ¸ì„œ ë” ì´ìƒ ì°¾ì„ ìˆ˜ ì—†ë‹¤.\n\n");
 				} else {
 					system("cls");
-					printf("[¿ø·ë]-[Ä§´ë]-[Ä§´ë]\n\n");
-					printf("\n±×Àú Æò¹üÇÑ ¶ó²Ù¶ó²Ù Ä§´ëÃ³·³ º¸ÀÎ´Ù.\n\n");
-					printf("1. Ä§´ë¸¦¡ºÆÄ±«¡»ÇÑ´Ù.\n");
-					printf("2. Ä§´ë¸¦¡º»ì·Á¡»ÁØ´Ù.\n");
+					printf("[ì›ë£¸]-[ì¹¨ëŒ€]-[ì¹¨ëŒ€]\n\n");
+					printf("\nê·¸ì € í‰ë²”í•œ ë¼ê¾¸ë¼ê¾¸ ì¹¨ëŒ€ì²˜ëŸ¼ ë³´ì¸ë‹¤.\n\n");
+					printf("1. ì¹¨ëŒ€ë¥¼ã€ŽíŒŒê´´ã€í•œë‹¤.\n");
+					printf("2. ì¹¨ëŒ€ë¥¼ã€Žì‚´ë ¤ã€ì¤€ë‹¤.\n");
 					printf(">> ");
 					scanf("%d", &menu);
 					
 					switch(menu) {
 						case 1:
-							isBrokenBed = TRUE;	//Ä§´ë ºÎ¼­Áü 
-							printf("\n# Ä§´ë°¡¡ºÆÄ±«¡»µÇ¾ú´Ù. \n\n");
-							printf("1. ÀÜÇØ¸¦ µÚÁø´Ù.\n");
-							printf("2. °¡¸¸È÷ µÐ´Ù.\n");
+							isBrokenBed = TRUE;	//ì¹¨ëŒ€ ë¶€ì„œì§ 
+							printf("\n# ì¹¨ëŒ€ê°€ã€ŽíŒŒê´´ã€ë˜ì—ˆë‹¤. \n\n");
+							printf("1. ìž”í•´ë¥¼ ë’¤ì§„ë‹¤.\n");
+							printf("2. ê°€ë§Œížˆ ë‘”ë‹¤.\n");
 							printf(">> ");
 							scanf("%d", &menu);
 							
 							switch(menu) {
 								case 1: 
-									printf("\nÆÄ¶õ»ö ¸Þ¸ðÀåÀÌ ÀÖ´Ù. ºñ¹Ð¹øÈ£ ÀÎ°Ç°¡?\n");
-									printf("³» ¼öÁØ¿¡ Ç®¼ö ¾ø´Â ¹®Á¦´Â ¾øÁö..Å©Å©´\n");
+									printf("\níŒŒëž€ìƒ‰ ë©”ëª¨ìž¥ì´ ìžˆë‹¤. ë¹„ë°€ë²ˆí˜¸ ì¸ê±´ê°€?\n");
+									printf("ë‚´ ìˆ˜ì¤€ì— í’€ìˆ˜ ì—†ëŠ” ë¬¸ì œëŠ” ì—†ì§€..í¬í¬Â\n");
 									printf("MON = 3 \n TUE =5 \n WED =4 \n THU = ?\n\n");
-									printf("EZÇÏ³ë\n");
+									printf("EZí•˜ë…¸\n");
 									break;
 								case 2:
-									printf("\nÄ¡¿ì±â ±ÍÂú´Ù. ±×³É µÎÀÚ.\n\n");
+									printf("\nì¹˜ìš°ê¸° ê·€ì°®ë‹¤. ê·¸ëƒ¥ ë‘ìž.\n\n");
 									break;
 							default:
-								printf("\n°áÁ¤À» ¸øÇß´Ù. µ¹¾Æ°¡ÀÚ.\n\n");
+								printf("\nê²°ì •ì„ ëª»í–ˆë‹¤. ëŒì•„ê°€ìž.\n\n");
 								break;
 							}
 							break;
 						case 2:
-							printf("\n¿ÍÅ¸½Ã°¡ Æ¯º°È÷¡º»ýÁ¸¡»½ÃÄÑÁÖµµ·Ï ÇÏÁö...\n\n");
+							printf("\nì™€íƒ€ì‹œê°€ íŠ¹ë³„ížˆã€Žìƒì¡´ã€ì‹œì¼œì£¼ë„ë¡ í•˜ì§€...\n\n");
 							break;
 						default:
-							printf("\n°áÁ¤À» ¸øÇß´Ù. µ¹¾Æ°¡ÀÚ.\n\n");
+							printf("\nê²°ì •ì„ ëª»í–ˆë‹¤. ëŒì•„ê°€ìž.\n\n");
 							break;
 					}	
 				}
@@ -227,27 +233,27 @@ void bed() {//2. Ä§´ë
 				break;		
 			case 3:
 				system("cls");
-				printf("[¿ø·ë]-[Ä§´ë]-[ÀÌºÒ]\n\n");
-				printf("\nº£°³¿¡¼­´Â Æ¯ÀÌÇÑ Á¡ÀÌ º¸ÀÌÁö ¾Ê´Â´Ù.\n\n");
-				printf("1. ÀÌºÒ »çÀÌ¸¦ µÚÁø´Ù\n");
-				printf("2. ÀÌºÒÀ» Âõ¾î¹ö¸°´Ù\n");
+				printf("[ì›ë£¸]-[ì¹¨ëŒ€]-[ì´ë¶ˆ]\n\n");
+				printf("\në² ê°œì—ì„œëŠ” íŠ¹ì´í•œ ì ì´ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤.\n\n");
+				printf("1. ì´ë¶ˆ ì‚¬ì´ë¥¼ ë’¤ì§„ë‹¤\n");
+				printf("2. ì´ë¶ˆì„ ì°¢ì–´ë²„ë¦°ë‹¤\n");
 				printf(">> ");
 				scanf("%d", &menu);
 				
 				switch(menu) {
 					case 1:
 						if(isFindGoldKey) {
-							printf("\n¿­¼è¸»°í ´Ù¸¥°ÍÀº º¸ÀÌÁö ¾Ê´Â´Ù .\n\n");
+							printf("\nì—´ì‡ ë§ê³  ë‹¤ë¥¸ê²ƒì€ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤ .\n\n");
 						} else {
-							isFindGoldKey = TRUE;	//±Ý»ö ¿­¼è È¹µæ 
-							printf("\nÀÌºÒ ¼Ó¿¡¼­ ¿­¼èÇÏ³ª¸¦ ¹ß°ßÇß´Ù. ¾îµð¿¡ ¾²´Â°ÅÁö?\n\n");
+							isFindGoldKey = TRUE;	//ê¸ˆìƒ‰ ì—´ì‡  íšë“ 
+							printf("\nì´ë¶ˆ ì†ì—ì„œ ì—´ì‡ í•˜ë‚˜ë¥¼ ë°œê²¬í–ˆë‹¤. ì–´ë””ì— ì“°ëŠ”ê±°ì§€?\n\n");
 						}
 						break;
 					case 2:
-						printf("\n³»°¡ ´©¿ö¾ß ÇÏ´Ï±î ³»ºñµÎÀÚ..\n\n");
+						printf("\në‚´ê°€ ëˆ„ì›Œì•¼ í•˜ë‹ˆê¹Œ ë‚´ë¹„ë‘ìž..\n\n");
 						break;
 					default:
-						printf("\n¾Æ¸ô¶û. µ¹¾Æ°¡ÀÚ.\n\n");
+						printf("\nì•„ëª°ëž‘. ëŒì•„ê°€ìž.\n\n");
 						break;
 						
 				}
@@ -256,26 +262,26 @@ void bed() {//2. Ä§´ë
 			case 0:
 				return;
 			default:
-				printf("# ERROR # ÀÀ¾Æ´Ï¾ß\n\n");
+				printf("# ERROR # ì‘ì•„ë‹ˆì•¼\n\n");
 				system("pause");
 		}
 	}
 }		
 
-void fridge(){//3. ³ÃÀå°í
+void fridge(){//3. ëƒ‰ìž¥ê³ 
 	int menu;
 	
 	while(1) {
 		system("cls");
-		printf("[ºñ¹öÀÇ¹æ]-[³ÃÀå°í ]\n\n");
-		printf("LG ½Å»ó ³ÃÀå°í°¡ ¹æÇÑÄÒ¿¡ ÀÖ´Ù ¹¹°¡ÀÖ´ÂÁö º¼±î³¶.\n");
-		printf("À½½Ä µÚÁö°Ô ¸¹³ß.\n\n");
-		printf("1. LPG ¸¦ »ìÆìº»´Ù\n");
-		printf("2. ÇØ¹°ÅÁÀ»  »ìÆìº»´Ù\n");
-		printf("3. »ç°ú¸¦ »ìÆìº»´Ù\n");
-		printf("4. ´ºÆ®¸®¾Æ¾Õ´Ù¸®¸¦ »ìÆìº»´Ù\n");
-		printf("5. ´ß¹ßÀ» »ìÆìº»´Ù\n");
-		printf("0. µ¹¾Æ°¡±â\n");
+		printf("[ë¹„ë²„ì˜ë°©]-[ëƒ‰ìž¥ê³  ]\n\n");
+		printf("LG ì‹ ìƒ ëƒ‰ìž¥ê³ ê°€ ë°©í•œì¼ ì— ìžˆë‹¤ ë­ê°€ìžˆëŠ”ì§€ ë³¼ê¹Œë‚­.\n");
+		printf("ìŒì‹ ë’¤ì§€ê²Œ ë§Žë„¹.\n\n");
+		printf("1. LPG ë¥¼ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("2. í•´ë¬¼íƒ•ì„  ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("3. ì‚¬ê³¼ë¥¼ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("4. ë‰´íŠ¸ë¦¬ì•„ì•žë‹¤ë¦¬ë¥¼ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("5. ë‹­ë°œì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("0. ëŒì•„ê°€ê¸°\n");
 		
 		printf(">> ");
 		scanf("%d", &menu);
@@ -283,41 +289,41 @@ void fridge(){//3. ³ÃÀå°í
 		switch(menu) {
 			case 1:
 				printf("\n\n");
-				printf("\n ÀÌ°Ô ¿Ö ¿©±â ÀÖ´Â°ÅÁö ¼öÇöÀÌ ÁýÀÎ°¡?\n\n");
+				printf("\n ì´ê²Œ ì™œ ì—¬ê¸° ìžˆëŠ”ê±°ì§€ ìˆ˜í˜„ì´ ì§‘ì¸ê°€?\n\n");
 				break;
 			case 2:
-				printf("\n ¹°ºñ¸°³»°¡ ½ÉÇÏ°Ô³­´Ù »óÇÑ°Ç°¡?..\n\n");
+				printf("\n ë¬¼ë¹„ë¦°ë‚´ê°€ ì‹¬í•˜ê²Œë‚œë‹¤ ìƒí•œê±´ê°€?..\n\n");
 				break;
 			case 3:
-				printf("\n¹ú·¹°¡ ±â¾î´Ù´Ñ´Ù »óÇ¥¸¦º¸´Ï PALDOCOMPANY ¶ó°í ½áÀÖ´Ù..\n\n");
+				printf("\në²Œë ˆê°€ ê¸°ì–´ë‹¤ë‹Œë‹¤ ìƒí‘œë¥¼ë³´ë‹ˆ PALDOCOMPANY ë¼ê³  ì¨ìžˆë‹¤..\n\n");
 				break;
 			case 4:
-				printf("\n´Ù2ºùÀ» ÇÏ·Á´Â ±×ÀÇ ÀÇÁö°¡ º¸ÀÎ´Ù..\n\n");
+				printf("\në‹¤2ë¹™ì„ í•˜ë ¤ëŠ” ê·¸ì˜ ì˜ì§€ê°€ ë³´ì¸ë‹¤..\n\n");
 				break;
 			case 5:
-				printf("\n »óÇ¥¸¸ ÂîÂî´ß¹ßÀÌ°í ÂÞÂÞ´ß¹ßÀÌ¿´´Ù.\n¾ó¸¥ ³ª°¡¼­ Âî´ßÀ» ¸Ô¾î¾ß°Ú¾î!\n\n");
+				printf("\n ìƒí‘œë§Œ ì°Œì°Œë‹­ë°œì´ê³  ì­ˆì­ˆë‹­ë°œì´ì˜€ë‹¤.\nì–¼ë¥¸ ë‚˜ê°€ì„œ ì°Œë‹­ì„ ë¨¹ì–´ì•¼ê² ì–´!\n\n");
 				break;
 			case 0:
 				return;
 			default:
-				printf("\n qudtls ¤»¤»\n\n");
+				printf("\n qudtls ã…‹ã…‹\n\n");
 				break;
 		}
 		system("pause");
 	}
 }	
 
-void safebox(){//4.Àå½Ç 
+void safebox(){//4.ìž¥ì‹¤ 
 	int menu;
 	
 	while(1) {
 		system("cls");
-		printf("[ºñ¹öÀÇ ¹æ]-[È­Àå½Ç]\n");
-		printf("¹°ºñ¸°³»°¡ ³ª´Â È­Àå½ÇÀÌ´Ù.\n\n");
-		printf("1. È­Àå½Ç ¹®À» ¿¬´Ù\n");
-		printf("2. È­Àå½Ç ¹®À» ºÎ¼ø´Ù\n");
-		printf("3. È­Àå½Ç ¹®À» »ìÆìº»´Ù\n");
-		printf("0. µ¹¾Æ°¡±â\n");
+		printf("[ë¹„ë²„ì˜ ë°©]-[í™”ìž¥ì‹¤]\n");
+		printf("ë¬¼ë¹„ë¦°ë‚´ê°€ ë‚˜ëŠ” í™”ìž¥ì‹¤ì´ë‹¤.\n\n");
+		printf("1. í™”ìž¥ì‹¤ ë¬¸ì„ ì—°ë‹¤\n");
+		printf("2. í™”ìž¥ì‹¤ ë¬¸ì„ ë¶€ìˆœë‹¤\n");
+		printf("3. í™”ìž¥ì‹¤ ë¬¸ì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("0. ëŒì•„ê°€ê¸°\n");
 		
 		printf(">> ");
 		scanf("%d", &menu);
@@ -325,51 +331,51 @@ void safebox(){//4.Àå½Ç
 		switch(menu) {
 			case 1:
 				if(isOpenSafebox) {
-					printf("\nÀÀ ÀÌ¹Ì ¿­¾ú¾î ¤»¤» ±î¸Ô¾úÀ¸¸é ´Ù½ÃÇÏ¼À ¤»¤».\n\n");
+					printf("\nì‘ ì´ë¯¸ ì—´ì—ˆì–´ ã…‹ã…‹ ê¹Œë¨¹ì—ˆìœ¼ë©´ ë‹¤ì‹œí•˜ì…ˆ ã…‹ã…‹.\n\n");
 					break; 
 				}
 				if(isFindGoldKey && isFindSilverKey) {
-					isFindMagnifyingGlass = TRUE;	//È­Àå½Ç ½Àµæ
-					isOpenSafebox = TRUE;	//È­Àå½Ç ¿­¾úÀ½ 
-					printf("\nÈ­Àå½Ç ¼¼¸é´ë¿¡ ¸Þ¸ðÀåÀÌ ÀÖ´Ù\n");	
-					printf("¸Þ¸ðÁö¿¡´Â Å« ±Û¾¾·Î ±ÛÀÌ ÀûÇôÀÖ´Ù.\n\n");
-					printf("'ÇÏÃ÷³×¹ÌÄíÀÇ ³ªÀÌ´Â?.\n¤»¤»°³½±³×\n");
-					printf("»¡¸® Ç®°í Âî´ß ¸ÔÀ¸·¯ °¡¾ßÂ¡'\n\n");
-					printf("ºÎÈ÷ÆRºÎÈ÷ÆR ÈÄÇìÇìÂm\n\n");					
+					isFindMagnifyingGlass = TRUE;	//í™”ìž¥ì‹¤ ìŠµë“
+					isOpenSafebox = TRUE;	//í™”ìž¥ì‹¤ ì—´ì—ˆìŒ 
+					printf("\ní™”ìž¥ì‹¤ ì„¸ë©´ëŒ€ì— ë©”ëª¨ìž¥ì´ ìžˆë‹¤\n");	
+					printf("ë©”ëª¨ì§€ì—ëŠ” í° ê¸€ì”¨ë¡œ ê¸€ì´ ì í˜€ìžˆë‹¤.\n\n");
+					printf("'í•˜ì¸ ë„¤ë¯¸ì¿ ì˜ ë‚˜ì´ëŠ”?.\nã…‹ã…‹ê°œì‰½ë„¤\n");
+					printf("ë¹¨ë¦¬ í’€ê³  ì°Œë‹­ ë¨¹ìœ¼ëŸ¬ ê°€ì•¼ì§•'\n\n");
+					printf("ë¶€ížˆRë¶€ížˆR í›„í—¤í—¤m\n\n");					
 				} else {
-					printf("\nÈ­Àå½Ç¿¡ ¿­¼è°¡ ¿Ö 2°³³ª ÇÊ¿äÇÏ³Ä°í!!.\n\n");
+					printf("\ní™”ìž¥ì‹¤ì— ì—´ì‡ ê°€ ì™œ 2ê°œë‚˜ í•„ìš”í•˜ëƒê³ !!.\n\n");
 				}
 				break;
 			case 2:
-				printf("\n¡ºÆÄ±«¡»ÇØ¾ß°Ú±º\n\n");
-				printf("\n Å©½î!!! ¹º³ð¿¡ ÁýÀÌ ÀüºÎ´Ù Ã¶·Î ¸¸µé¾ú¾î\n\n");
+				printf("\nã€ŽíŒŒê´´ã€í•´ì•¼ê² êµ°\n\n");
+				printf("\n í¬ì˜!!! ë­”ë†ˆì— ì§‘ì´ ì „ë¶€ë‹¤ ì² ë¡œ ë§Œë“¤ì—ˆì–´\n\n");
 				break;
 			case 3:
-				printf("\n¾Æ´Ï ¹ºµ¥ È­Àå½Ç¿¡ ¿­¼è±¸¸ÛÀÌ µÎ°³ÀÓ?\n\n");
+				printf("\nì•„ë‹ˆ ë­”ë° í™”ìž¥ì‹¤ì— ì—´ì‡ êµ¬ë©ì´ ë‘ê°œìž„?\n\n");
 				break; 
 			case 0:
 				return;
 			default:
-				printf("\n¶È¹Ù·ÎÁ» ½á¶ó ¼Õ°¡¶ô ¹®Á¦ÀÖÀ½? \n\n");
+				printf("\në˜‘ë°”ë¡œì¢€ ì¨ë¼ ì†ê°€ë½ ë¬¸ì œìžˆìŒ? \n\n");
 				break;
 		}
 		system("pause");
 	}	
 }	
 
-void closet(){//5. ¿ÊÀå
+void closet(){//5. ì˜·ìž¥
 	int menu;
 	
 	while(1) {
 		system("cls");
-		printf("[ºñ¹öÀÇ ¹æ]-[¿ÊÀå]\n\n");
-		printf("¹æ ÇÑÂÊÀ» °¡µæ Ã¤¿ï Á¤µµÀÇ Å« ¿ÊÀåÀÌ´Ù.\n\n");
-		printf("1. ¼öÇöÀÌ ¿ÊÀ» »ìÆìº»´Ù\n");
-		printf("2. µ¿ÇöÀÌ ¿ÊÀ» »ìÆìº»´Ù\n");
-		printf("3. ¼®ÇöÀÌ ¿ÊÀ» »ìÆìº»´Ù\n");
-		printf("4. ¼®ÁøÀÌ ¿ÊÀ» »ìÆìº»´Ù\n");
-		printf("5. ¿ÊÀåÀ» ºÎ¼ø´Ù\n");
-		printf("0. µ¹¾Æ°¡±â\n");
+		printf("[ë¹„ë²„ì˜ ë°©]-[ì˜·ìž¥]\n\n");
+		printf("ë°© í•œìª½ì„ ê°€ë“ ì±„ìš¸ ì •ë„ì˜ í° ì˜·ìž¥ì´ë‹¤.\n\n");
+		printf("1. ìˆ˜í˜„ì´ ì˜·ì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("2. ë™í˜„ì´ ì˜·ì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("3. ì„í˜„ì´ ì˜·ì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("4. ì„ì§„ì´ ì˜·ì„ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("5. ì˜·ìž¥ì„ ë¶€ìˆœë‹¤\n");
+		printf("0. ëŒì•„ê°€ê¸°\n");
 		
 		printf(">> ");
 		scanf("%d", &menu);
@@ -377,57 +383,57 @@ void closet(){//5. ¿ÊÀå
 		switch(menu) {
 			case 1:
 				if(isFindSilverKey) {
-					printf("\n ¼öÇöÀÌ ¿Ê¿¡´Â ´õÀÌ»ó Ã£À»°Ô ¾ø¾îº¸ÀÎ´Ù ¾µ¸ð¾ø´Â³ð.\n\n");
+					printf("\n ìˆ˜í˜„ì´ ì˜·ì—ëŠ” ë”ì´ìƒ ì°¾ì„ê²Œ ì—†ì–´ë³´ì¸ë‹¤ ì“¸ëª¨ì—†ëŠ”ë†ˆ.\n\n");
 				} else {
-					isFindSilverKey = TRUE;		//Àº»ö ¿­¼è Ã£À½ 
-					printf("\n¼öÇöÀÌ ¿Ê ÁÖ¸Ó´Ï¿¡ Àº»ö¿­¼è¿Í LPG¸íÇÔÀÌ ÀÖ´Ù.\n\n");
+					isFindSilverKey = TRUE;		//ì€ìƒ‰ ì—´ì‡  ì°¾ìŒ 
+					printf("\nìˆ˜í˜„ì´ ì˜· ì£¼ë¨¸ë‹ˆì— ì€ìƒ‰ì—´ì‡ ì™€ LPGëª…í•¨ì´ ìžˆë‹¤.\n\n");
 				}
 				break;
 			case 2:
-				printf("\nµ¿ÇöÀÌ ¿Ê»çÀÌ¿¡ ¸Þ¸ðÁö°¡ µé¾îÀÖ´Ù\n\n");
+				printf("\në™í˜„ì´ ì˜·ì‚¬ì´ì— ë©”ëª¨ì§€ê°€ ë“¤ì–´ìžˆë‹¤\n\n");
 				printf("\n 9 + 3 = 12 \n 5 + 10 = 3 \n 7 + 9= 4 \n 15 + 6 = ???\n\n");
-				printf("°³½±³ë¤»");
+				printf("ê°œì‰½ë…¸ã…‹");
 				break;
 			case 3:
-				printf("\n¼®ÇöÀÌ ¿Ê¿¡´Â ÂîÂî´ß¹ß ¸íÇÔÀÌ µé¾îÀÖ´Ù.\n\n");
+				printf("\nì„í˜„ì´ ì˜·ì—ëŠ” ì°Œì°Œë‹­ë°œ ëª…í•¨ì´ ë“¤ì–´ìžˆë‹¤.\n\n");
 				break; 
 			case 4:
-				printf("\n¼®ÁøÀÌ ¿Ê¿¡´Â ½âÀº »ç°ú¿Í ÆÈµµÃ»°ú ¸íÇÔÀÌ µé¾îÀÖ´Ù.\n\n");
+				printf("\nì„ì§„ì´ ì˜·ì—ëŠ” ì©ì€ ì‚¬ê³¼ì™€ íŒ”ë„ì²­ê³¼ ëª…í•¨ì´ ë“¤ì–´ìžˆë‹¤.\n\n");
 				break; 
 			case 5:
-				printf("\nÈÄÈÄÈÄ ¡º¿ÊÀå¡»ÀÌ¶ó...\nºÎ½¤ ¹ö·ÁÁêÁö..\nÅ©½î!!!!!!!!!!!\nÃ¶Á¦¿ÊÀåÀÎ°É ±î¸Ô¾î ¹ö·È´Ù..¶ö±î?\n\n");
+				printf("\ní›„í›„í›„ ã€Žì˜·ìž¥ã€ì´ë¼...\në¶€ìˆ´ ë²„ë ¤ì¥¬ì§€..\ní¬ì˜!!!!!!!!!!!\nì² ì œì˜·ìž¥ì¸ê±¸ ê¹Œë¨¹ì–´ ë²„ë ¸ë‹¤..ëž„ê¹Œ?\n\n");
 				break; 
 			case 0:
 				return;
 			default:
-				printf("\n¾ß·¹¾ß·¹..¼Õ³ª¹ÚÇÏ³ª..\n\n");
+				printf("\nì•¼ë ˆì•¼ë ˆ..ì†ë‚˜ë°•í•˜ë‚˜..\n\n");
 				break;
 		}
 		system("pause");
 	}	
 }	
 
-void door(){//6. ÃâÀÔ¹® 
+void door(){//6. ì¶œìž…ë¬¸ 
 	int menu;
 	
 	while(1) {
 		system("cls");
-		printf("[ºñ¹öÀÇ¹æ]-[Å»Ãâ±¸]\n\n");
-		printf("¿ÀÀ× ¹®ÀÌ ¿©±âÀÖ¾ú³ß.\n");
-		printf("¹® ¾Õ¿¡´Â È­ÀÌÆ®º¸µå¿¡ ±Û±Í°¡ ½áÀÖ´Ù.\n\n");
+		printf("[ë¹„ë²„ì˜ë°©]-[íƒˆì¶œêµ¬]\n\n");
+		printf("ì˜¤ìž‰ ë¬¸ì´ ì—¬ê¸°ìžˆì—ˆë„¹.\n");
+		printf("ë¬¸ ì•žì—ëŠ” í™”ì´íŠ¸ë³´ë“œì— ê¸€ê·€ê°€ ì¨ìžˆë‹¤.\n\n");
 		
-		printf("1. È­ÀÌÆ®º¸µå¸¦ »ìÆìº»´Ù\n");
-		printf("2. ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÑ´Ù\n");
-		printf("0. µ¹¾Æ°¡±â\n");
+		printf("1. í™”ì´íŠ¸ë³´ë“œë¥¼ ì‚´íŽ´ë³¸ë‹¤\n");
+		printf("2. ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•œë‹¤\n");
+		printf("0. ëŒì•„ê°€ê¸°\n");
 		
 		printf(">> ");
 		scanf("%d", &menu);
 		
 		switch(menu) {
 			case 1:
-				printf("\nÈ­ÀÌÆ®º¸µå¿¡´Â °£´ÜÇÏ°Ô ¸îÁÙ½áÀÖ´Ù?\n\n");
-				printf("¹æ¿¡ÀÖ´Â ÈùÆ® ¿ä¼Ò¸¦ ¸ð¾Æ ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØ Å»ÃâÇÏ¶ó.\n\n");
-				printf("±×·¯°Ô ¿Ö »çÁø Âï¾î°¡Áö°í Ã³ ÀâÇô¿È¤»¤»\n");
+				printf("\ní™”ì´íŠ¸ë³´ë“œì—ëŠ” ê°„ë‹¨í•˜ê²Œ ëª‡ì¤„ì¨ìžˆë‹¤?\n\n");
+				printf("ë°©ì—ìžˆëŠ” ížŒíŠ¸ ìš”ì†Œë¥¼ ëª¨ì•„ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ íƒˆì¶œí•˜ë¼.\n\n");
+				printf("ê·¸ëŸ¬ê²Œ ì™œ ì‚¬ì§„ ì°ì–´ê°€ì§€ê³  ì²˜ ìž¡í˜€ì˜´ã…‹ã…‹\n");
 				break;
 			case 2:
 				door_password();
@@ -435,7 +441,7 @@ void door(){//6. ÃâÀÔ¹®
 			case 0:
 				return;
 			default:
-				printf("\nÀÀ ¾Æ´Ï¾ß ´Ù½ÃÇØ ¤»¤»\n\n");
+				printf("\nì‘ ì•„ë‹ˆì•¼ ë‹¤ì‹œí•´ ã…‹ã…‹\n\n");
 				break;
 		}
 		system("pause");
@@ -452,17 +458,17 @@ void door_password() {
 	
 	if(!strcmp(pass, temp)) {
 		system("cls");
-		printf("\n\n¾Æ¤»¤» µåµð¾î ³ª¿Ô³× ¤»¤».\n\n");
-		printf("¾Æ ¹è µÚÁö°Ô °íÇÁ³×.\n");
-		printf("¾Æ ±×³ªÀú³ª ¿©±â ¾îµðÁö ¤»¤»\n");
-		printf("¾Æ¸ô¶û Áý°¡¼­ Âî´ßÀÌ³ª ¸Ô¾î¾ßÁö.\n\n");
-		printf("±× ÀÌÈÄ ÁÖÀÎ°øÀº ¿ì¿©°îÀý ³¡¿¡ Áý¿¡ µ¹¾Æ°¡ »óÇÑ Âî´ßÀ» º¸°í ºÐ³ëÇÏ¿´°í..\n\n");
-		printf("±× ´ÙÀ½..");
+		printf("\n\nì•„ã…‹ã…‹ ë“œë””ì–´ ë‚˜ì™”ë„¤ ã…‹ã…‹.\n\n");
+		printf("ì•„ ë°° ë’¤ì§€ê²Œ ê³ í”„ë„¤.\n");
+		printf("ì•„ ê·¸ë‚˜ì €ë‚˜ ì—¬ê¸° ì–´ë””ì§€ ã…‹ã…‹\n");
+		printf("ì•„ëª°ëž‘ ì§‘ê°€ì„œ ì°Œë‹­ì´ë‚˜ ë¨¹ì–´ì•¼ì§€.\n\n");
+		printf("ê·¸ ì´í›„ ì£¼ì¸ê³µì€ ìš°ì—¬ê³¡ì ˆ ëì— ì§‘ì— ëŒì•„ê°€ ìƒí•œ ì°Œë‹­ì„ ë³´ê³  ë¶„ë…¸í•˜ì˜€ê³ ..\n\n");
+		printf("ê·¸ ë‹¤ìŒ..");
 		printf("#1.SAD ENDING");
 		system("pause");
 		exit(0);
 	} else {
-		printf("\n\nºñ¹Ð¹øÈ£ ´©°¡¸ð¸§ ¤»¤» ¾Æ¤»¤» ³Ê¸¸ ¸ð¸§ ¤»¤»\n\n");
+		printf("\n\në¹„ë°€ë²ˆí˜¸ ëˆ„ê°€ëª¨ë¦„ ã…‹ã…‹ ì•„ã…‹ã…‹ ë„ˆë§Œ ëª¨ë¦„ ã…‹ã…‹\n\n");
 		return;	
 	}
 }
